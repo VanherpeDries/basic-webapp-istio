@@ -5,7 +5,6 @@ metadata:
     app: webapp
   name: webapp
 spec:
-  type: NodePort
   ports:
     - port: 5000
   selector:

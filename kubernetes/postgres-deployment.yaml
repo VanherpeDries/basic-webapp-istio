@@ -29,6 +29,8 @@ spec:
           value: student_user
         image: postgres:12.1-alpine
         name: postgres
+        ports:
+          - containerPort: 5432
         resources: {}
       restartPolicy: Always
 status: {}

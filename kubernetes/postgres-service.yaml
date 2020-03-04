@@ -5,9 +5,10 @@ metadata:
     app: postgres
   name: postgres
 spec:
-  type: NodePort
-  ports:
-    - port: 5432
+  ports: 
+    - name: "tcp-5432"
+      port: 5432
+      
   selector:
     app: postgres
 status:
