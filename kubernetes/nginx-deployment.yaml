@@ -15,6 +15,7 @@ spec:
       labels:
         app: nginx
     spec:
+      serviceAccountName: nginx
       containers:
       - image: eslih/webapp-nginx:v1.0.1
         name: nginx
@@ -23,3 +24,9 @@ spec:
         resources: {}
       restartPolicy: Always
 status: {}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nginx
+

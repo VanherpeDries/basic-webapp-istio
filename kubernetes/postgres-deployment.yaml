@@ -19,6 +19,7 @@ spec:
       labels:
         app: postgres
     spec:
+      serviceAccountName: postgres
       containers:
       - env:
         - name: POSTGRES_DB
@@ -34,3 +35,8 @@ spec:
         resources: {}
       restartPolicy: Always
 status: {}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: postgres

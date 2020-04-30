@@ -3,21 +3,22 @@ kind: Deployment
 metadata:
   labels:
     app: webapp
-    version: v109
-  name: webappv109
+    version: v120
+  name: webappv120
 spec:
-  replicas: 1  
+  replicas: 1
   selector:
     matchLabels:
       app: webapp
+      version: v120
   strategy: {}
   template:
     metadata:
       labels:
         app: webapp
-        version: v109
+        version: v120
     spec:
-      serviceAccountName: webapp 
+      serviceAccountName: webapp
       containers:
       - args:
         - uwsgi
@@ -34,15 +35,10 @@ spec:
           value: "5432"
         - name: PG_USER
           value: student_user
-        image: eslih/basic-webapp:v1.0.9
-        name: webappv109
+        image: vanherpedries/webapp:1.20
+        name: webappv120
         ports:
         - containerPort: 5000
 
         resources: {}
       restartPolicy: Always
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: webapp 

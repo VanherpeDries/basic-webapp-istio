@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+ name: nginx
+spec:
+ selector:
+   matchLabels:
+     app: nginx 
+ rules:
+ - from:
+   - source:
+       namespaces: ["istio-system"]
+   to: 
+   - operation:
+       ports: ["80"]

@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+ name: postgres
+spec:
+ selector:
+   matchLabels:
+     app: postgres 
+ rules:
+ - from:
+   - source:
+       principals: ["cluster.local/ns/basic-webapp/sa/webapp"]
+   to: 
+   - operation:
+       ports: ["5432"]
